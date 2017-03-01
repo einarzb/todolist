@@ -3,9 +3,9 @@ app.controller('toDoCtrl', function($scope, toDoService) {
 
   $scope.userTask;
   $scope.userRate;
-  $scope.checked = false;
-  $scope.listContainer = false;
-   //boolean
+  $scope.checked = false; //boolean for chxbox
+  $scope.listContainer = false; //hide
+  $scope.date = new Date();
 
   //creats object and send it to service
   $scope.createTask = function(){

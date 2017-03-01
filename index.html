@@ -23,8 +23,8 @@
 
               <div ng-show="listContainer">
                
-                <div class ="sos well">
-                  <h1>S.O.S</h1>
+                <div class ="sos alert alert-danger">
+                  <h1>S.O.S</h1> <span>{{date | date:'dd/MM/yyyy'}}</span>
                   <p>add your first task..it's urgent!!</p>
                   <ol style="margin:0 auto;width:400px;text-decoration:none;text-align:left">
                     <li ng-repeat="task in toDoEmpty | orderBy: '-rate' track by $index" >
@@ -35,8 +35,8 @@
                   </ol>
                 </div>
 
-                <div class ="medium well">
-                  <h1>Medium</h1>
+                <div class ="medium alert alert-warning">
+                  <h1>Medium</h1><span>{{date | date:'dd/MM/yyyy'}}</span>
                   <p>add your first task..</p>
                   <ol style="margin:0 auto;width:400px;text-decoration:none;text-align:left">
                     <li ng-repeat="task in toDoEmpty | orderBy: '-rate' track by $index" >
@@ -47,8 +47,8 @@
                   </ol>
                 </div>
 
-                <div class ="delay well">
-                  <h1>Delay</h1>
+                <div class ="delay alert alert-success">
+                  <h1>Delay</h1><span>{{date | date:'dd/MM/yyyy'}}</span>
                    <p>add your first task..take your time</p>
                   <ol style="margin:0 auto;width:400px;text-decoration:none;list-style:none;">
                     <li ng-repeat="task in toDoEmpty | orderBy: '-rate' track by $index" >
