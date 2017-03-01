@@ -9,22 +9,24 @@ app.controller('toDoCtrl', function($scope, toDoService) {
 
   //creats object and send it to service
   $scope.createTask = function(){
-    $scope.listContainer = true;
-     var newTask = {task: $scope.userTask, rate:$scope.userRate, check:$scope.checked};
-     toDoService.addTaskToList(newTask); //invoke service function 
-     $scope.userTask = "";
-     $scope.userRate = "";
+     if($scope.userTask){  
+       $scope.listContainer = true; //reveal lists display
+       var newTask = {task: $scope.userTask, rate:$scope.userRate, check:$scope.checked};
+       toDoService.addTaskToList(newTask); //invoke service function 
+    } else { alert("your first task is to fill in a task... "); };
+
+       $scope.userTask = "";
+       $scope.userRate = "";
     };
 
   //finds item to remove from the array and send it to service
   $scope.removeFromList = function (index) {
-    var user;
+    var removeConfirm;
       if (confirm("are you sure you've done it? you lazy fuck") == true) {
-          user = toDoService.removeTaskFromList(index);
+          removeConfirm = toDoService.removeTaskFromList(index);
       } else {
-          user;
+          removeConfirm;
       }
-    //toDoService.removeTaskFromList(index);
   };
 
   //checkbox toggle

@@ -3,3 +3,9 @@ body{margin: 0 auto}
 .rate{width:150px;}
 .main{margin-top:100px;} 
 span{float:right;}
+
+li{color:black;}
+
+.checkup{
+  display: inline-block;
+}

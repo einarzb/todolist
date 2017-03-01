@@ -15,46 +15,47 @@
               <input type="text" class="form-control" ng-model="userTask" placeholder="Enter task">
               
               <label>&nbsp;Choose importance level:&nbsp;</label>
-              &nbsp;<input type="radio" name="rate" value="userRateSos">&nbsp;SOS
-              &nbsp;<input type="radio" name="rate" value="userRateMedium">&nbsp;Medium
-              &nbsp;<input type="radio" name="rate" value="userRateNotImportant">&nbsp;Delay
+              &nbsp;<input type="radio" ng-value="name" name="rate" ng-model="rateSos">&nbsp;SOS
+              &nbsp;<input type="radio" ng-value="name" name="rate" ng-model="rateMedium">&nbsp;Medium
+              &nbsp;<input type="radio" ng-value="name" name="rate" ng-model"rateDelay">&nbsp;Delay
               <br>
               <button type="button" class="btn btn-success" ng-click="createTask()">submit</button><br><br>
 
               <div ng-show="listContainer">
                
-                <div class ="sos alert alert-danger">
-                  <h1>S.O.S</h1> <span>{{date | date:'dd/MM/yyyy'}}</span>
-                  <p>add your first task..it's urgent!!</p>
-                  <ol style="margin:0 auto;width:400px;text-decoration:none;text-align:left">
+                <div class ="rateSos alert alert-danger">
+                  <h1>S.O.S</h1> <span style="color:grey">{{date | date:'dd/MM/yyyy'}}</span>
+                  <h5><em>add your first task..it's urgent!!</em></h5>
+                  <ol style="text-decoration:none;text-align:left;list-style:none;">
                     <li ng-repeat="task in toDoEmpty | orderBy: '-rate' track by $index" >
-                      {{task.task}} - <b>importance:</b> {{task.rate}}
-                        <input type="checkbox" ng-click="checkBox()"> {{checked}}
-                        <button type="button" class="btn btn-link btn-sm" ng-click="removeFromList($index)">remove</button>
+                      - {{task.task}}
+                      <div class="checkup" align="right center">
+                      <input type="checkbox" ng-click="checkBox()"><button type="button" class="btn btn-link btn-sm" ng-click="removeFromList($index)">remove task</button>
+                      </div>
                     </li>
                   </ol>
                 </div>
 
-                <div class ="medium alert alert-warning">
-                  <h1>Medium</h1><span>{{date | date:'dd/MM/yyyy'}}</span>
-                  <p>add your first task..</p>
-                  <ol style="margin:0 auto;width:400px;text-decoration:none;text-align:left">
+                <div class ="rateMedium alert alert-warning">
+                  <h1>Medium</h1><span style="color:grey">{{date | date:'dd/MM/yyyy'}}</span>
+                  <h5><em>add your first task..</em></h5>
+                  <ol style="text-decoration:none;text-align:left;list-style:none;">
                     <li ng-repeat="task in toDoEmpty | orderBy: '-rate' track by $index" >
-                      {{task.task}} - <b>importance:</b> {{task.rate}}
-                        <input type="checkbox" ng-click="checkBox()"> {{checked}}
-                        <button type="button" class="btn btn-link btn-sm" ng-click="removeFromList($index)">remove</button>
+                      - {{task.task}}
+                      <span style="float:right">
+                      <input type="checkbox" ng-click="checkBox()"><button type="button" class="btn btn-link btn-sm" ng-click="removeFromList($index)">remove task</button>
+                      </span>
                     </li>
                   </ol>
                 </div>
 
-                <div class ="delay alert alert-success">
-                  <h1>Delay</h1><span>{{date | date:'dd/MM/yyyy'}}</span>
-                   <p>add your first task..take your time</p>
-                  <ol style="margin:0 auto;width:400px;text-decoration:none;list-style:none;">
+                <div class ="rateDelay alert alert-success">
+                  <h1>Delay</h1><span style="color:grey">{{date | date:'dd/MM/yyyy'}}</span>
+                    <h5><em>add your first task..take your time</em></h5>
+                  <ol style="text-decoration:none;text-align:left;list-style:none;">
                     <li ng-repeat="task in toDoEmpty | orderBy: '-rate' track by $index" >
-                      {{task.task}} - <b>importance:</b> {{task.rate}}
-                        <input type="checkbox" ng-click="checkBox()"> {{checked}}
-                        <button type="button" class="btn btn-link btn-sm" ng-click="removeFromList($index)">remove</button>
+                      - {{task.task}}
+                      <input type="checkbox" ng-click="checkBox()"><button type="button" class="btn btn-link btn-sm" ng-click="removeFromList($index)">remove task</button>
                     </li>
                   </ol>
                 </div>
