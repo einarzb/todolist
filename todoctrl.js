@@ -11,7 +11,7 @@ app.controller('toDoCtrl', function($scope, toDoService) {
    //boolean
 
   //creats object and send it to service
-  $scope.addToList = function(){
+  $scope.createTask = function(){
      var newTask = {task: $scope.userTask, rate:$scope.userRate, check:$scope.userCheckboxModel.value1};
      //console.log(newTask);
      toDoService.addTaskToList(newTask); //invoke service function 

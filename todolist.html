@@ -9,15 +9,16 @@
   task:<input type="text" ng-model="userTask">
   rate:<input type="number" ng-model="userRate">
   
-  <button type="button" ng-click="addToList()">submit</button><br>
+  <button type="button" ng-click="createTask()">submit</button><br>
   
   <div class="listContainer" style="margin-top:40px;">
-      <ul style="margin:0 auto;width:300px;text-decoration:none;list-style:none;text-align:left">
+      <ol style="margin:0 auto;width:400px;text-decoration:none;text-align:left">
         <li ng-repeat="task in toDoEmpty | orderBy: '-rate'">
-          {{task.task}} {{task.rate}}
-          checked<input type="checkbox" ng-model="userCheckboxModel.value1">
+          {{task.task}} - importance: {{task.rate}}
+          <input type="checkbox" ng-model="userCheckboxModel.value1"> {{task.check}}
+            <button type="button" ng-click="removeFromList()">remove</button>
         </li>
-      </ul>
+      </ol>
   </div>  
 </div>
 
