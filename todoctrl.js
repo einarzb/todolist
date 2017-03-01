@@ -18,19 +18,26 @@ app.controller('toDoCtrl', function($scope, toDoService) {
 
   //finds item to remove from the array and send it to service
   $scope.removeFromList = function (index) {
-    toDoService.removeTaskFromList(index);
+    var user;
+      if (confirm("are you sure you've done it? you lazy fuck") == true) {
+          user = toDoService.removeTaskFromList(index);
+      } else {
+          user;
+      }
+    //toDoService.removeTaskFromList(index);
   };
 
+  //checkbox toggle
   $scope.checkBox = function(){
     if($scope.checked){
-      $scope.checked = false;
-      console.log('you changed the ole check thing')
-      console.log($scope.checked)
+        $scope.checked = false;
+        console.log('you changed the ole check thing')
+        console.log($scope.checked)
     }else{
-      $scope.checked = true;
-      console.log('you changed the ole check thing')
-      console.log($scope.checked)
-    }
+        $scope.checked = true;
+        console.log('you changed the ole check thing')
+        console.log($scope.checked)
+     }
   };
 
 });
