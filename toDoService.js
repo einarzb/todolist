@@ -18,9 +18,15 @@ app.service('toDoService', function(){
    console.log(toDoEmpty); 
   };
 
+  var removeTaskFromList = function (index) {
+  toDoEmpty.splice(index, 1); 
+  console.log(index); 
+  };
+
   return { 
     toDoEmpty:toDoEmpty,
-    addTaskToList:addTaskToList
+    addTaskToList:addTaskToList,
+    removeTaskFromList:removeTaskFromList
   };
 });
 

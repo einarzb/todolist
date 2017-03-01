@@ -17,4 +17,12 @@ app.controller('toDoCtrl', function($scope, toDoService) {
      toDoService.addTaskToList(newTask); //invoke service function 
   };
 
+  //finds item to remove from the array and send it to service
+  $scope.removeFromList = function (task) {
+    var index = $scope.toDoEmpty.indexOf(task);
+    console.log("task is: " + task.name);
+    console.log("index of task is: " + index);
+    toDoService.removeTaskFromList(index);
+  }
+
 });
