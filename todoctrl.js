@@ -3,18 +3,14 @@ app.controller('toDoCtrl', function($scope, toDoService) {
 
   $scope.userTask;
   $scope.userRate;
-  //an object with 2 properties
-  $scope.userCheckboxModel = {
-       value1 : true,
-       value2 : false
-     };
-
   $scope.checked = false;
+  $scope.listContainer = false;
    //boolean
 
   //creats object and send it to service
   $scope.createTask = function(){
-     var newTask = {task: $scope.userTask, rate:$scope.userRate, check:$scope.userCheckboxModel.value1};
+    $scope.listContainer = true;
+     var newTask = {task: $scope.userTask, rate:$scope.userRate, check:$scope.checked};
      toDoService.addTaskToList(newTask); //invoke service function 
      $scope.userTask = "";
      $scope.userRate = "";
